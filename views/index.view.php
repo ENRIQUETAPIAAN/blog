@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/07702d4e25.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/estiloss.css">
+    <link rel="stylesheet" href="<?php echo RUTA; ?>css/estiloss.css">
     <title>Blog | Inicio</title>
 </head>
 <body>
@@ -20,7 +20,17 @@
                 <p><a href="#">Mi Primer Blog</a></p>
             </div>
             <div class="derecha">
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"></form>
+                <form name="busqueda" class="buscar" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="get">
+                    <input type="text" name="busqueda" placeholder="Buscar:">
+                    <button type="submit" class="icono fa fa-search"></button>
+                </form>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#">Contacto  <i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </header>
