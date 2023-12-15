@@ -2,7 +2,7 @@
 define('RUTA', 'http://localhost/cursoPHP/blog/');
 
 $db_config = array(
-    'basedatos' => 'db_articulos',
+    'basedatos' => 'db_blog',
     'usuario' => 'root',
     'pass' => ''
 );
