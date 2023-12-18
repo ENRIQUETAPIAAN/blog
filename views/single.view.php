@@ -9,10 +9,9 @@
                 <div class="thumb">
                     <img src="<?php echo RUTA; ?>/img/<?php echo $post['thumb'] ?>" alt="<?php echo $post['titulo_articulo'] ?>">
                 </div>
-                <p class="extracto"><?php echo $post['texto_articulo'] ?></p>
+                <p class="extracto"><?php echo nl2br($post['texto_articulo']); ?></p>
             </article>
         </div>
-
     </div>
 
     <?php require 'footer.php'; ?>
