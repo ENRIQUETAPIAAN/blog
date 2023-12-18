@@ -57,4 +57,10 @@ function fecha($fecha){
     return $fecha;
 }
 
+function comprobar_sesion(){
+    if(!isset($_SESSION['admin'])){
+        header('Location: ' . RUTA);
+    }
+}
+
 ?>
