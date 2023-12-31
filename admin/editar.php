@@ -6,7 +6,6 @@ require '../functions.php';
 comprobar_sesion();
 
 $conexion = conexion($db_config);
-
 if(!$conexion){
     header('Location: error.php');
 }
@@ -16,10 +15,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $extracto = limpiarDatos($_POST['extracto']);
     $texto = $_POST['texto'];
     $id = limpiarDatos($_POST['id']);
-    $thumb_gardada = $_POST['thumb-gardada'];
+    $thumb_guardada = $_POST['thumb-gardada'];
     $thumb = $_FILES['thumb'];
 
-    if(empty($humb['name'])){
+    if(empty($thumb['name'])){
         $thumb = $thumb_gardada;
     } else{
         $archivo_subido = '../' . $blog_config['carpeta_imagenes'] . $_FILES['thumb']['name'];  
@@ -27,8 +26,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $thumb = $_FILES['thumb']['name'];
     }
 
-    $statement = $conexion->prepare('UPDATE tb_articulos SET titulo_articulo = :titulo, extracto_articulo = :extracto, texto_articulo = :texto, thumb = :thumb WHERE id_articulo = :id');
-    $statement->execute(array(':titulo' => $titulo,':extracto' => $extracto, ':texto' => $texto, ':thumb' => $thumb, ':id' => $id));
+    $statement = $conexion->prepare(
+        'UPDATE tb_articulos SET titulo_articulo = :titulo, extracto_articulo = :extracto, 
+        texto_articulo = :texto, thumb = :thumb WHERE id_articulo = :id'
+    );
+    $statement->execute(array(
+        ':titulo' => $titulo,
+        ':extracto' => $extracto, 
+        ':texto' => $texto, 
+        ':thumb' => $thumb, 
+        ':id' => $id)
+    );
 
     header('Location: ' . RUTA . 'admin');
 

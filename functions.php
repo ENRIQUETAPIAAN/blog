@@ -48,7 +48,7 @@ function obtener_post_por_id($conexion, $id){
 
 function fecha($fecha){
     $timestamp = strtotime($fecha);
-    $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    $meses = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
     $dia = date('d', $timestamp);
     $mes = date('m', $timestamp) - 1;
     $year = date('Y', $timestamp);
